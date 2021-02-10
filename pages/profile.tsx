@@ -1,14 +1,14 @@
-import React from 'react'
-import { useRouter } from 'next/router'
+import React from "react";
+import { useRouter } from "next/router";
 
 const Profile = () => {
-    const router = useRouter()
+  const router = useRouter();
 
-    return (
-        <div>
-            <p>Hello, my name is {router.query.name} </p>
-        </div>
-    )
-}
+  return (
+    <div>
+      <p>Hello, my name is {router.query.name} </p>
+    </div>
+  );
+};
 
-export default Profile
+export default Profile;
