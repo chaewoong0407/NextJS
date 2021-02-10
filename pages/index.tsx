@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import Avatar from "react-avatar-edit";
+import dynamic from "next/dynamic";
+
+const Avatar = dynamic(() => import("react-avatar-edit"), { ssr: false });
 
 const index = () => {
   const [preview, setPreview] = useState(null);
@@ -11,12 +13,15 @@ const index = () => {
   const onCrop = (preview: any) => {
     setPreview(preview);
     console.log(preview);
+    console.log(typeof preview);
   };
 
   const onBeforeFileLoad = (elem: any) => {
     if (elem.target.files[0].size > 500000) {
       alert("File is too big!");
       elem.target.value = "";
+    } else {
+      console.log(typeof elem.target.files[0]);
     }
   };
 
